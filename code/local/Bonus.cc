@@ -19,7 +19,6 @@
 
 #include <gf/Sprite.h>
 #include <gf/RenderTarget.h>
-#include <gf/Unused.h>
 #include <gf/VectorOps.h>
 
 #include "Hero.h"
@@ -99,9 +98,7 @@ namespace lux {
 
   static constexpr float BonusLinearVelocty = 120.0f;
 
-  gf::MessageStatus BonusManager::onDropBonus(gf::Id id, gf::Message *msg) {
-    gf::unused(id);
-
+  gf::MessageStatus BonusManager::onDropBonus([[maybe_unused]] gf::Id id, gf::Message *msg) {
     auto drop = static_cast<DropBonusMessage*>(msg);
 
     BonusType bonusType = static_cast<BonusType>(m_random.computeUniformInteger(0, 1));
@@ -110,9 +107,7 @@ namespace lux {
     return gf::MessageStatus::Keep;
   }
 
-  gf::MessageStatus BonusManager::onLocation(gf::Id id, gf::Message *msg) {
-    gf::unused(id);
-
+  gf::MessageStatus BonusManager::onLocation([[maybe_unused]] gf::Id id, gf::Message *msg) {
     auto loc = static_cast<LocationMessage*>(msg);
 
     // Check if is player location

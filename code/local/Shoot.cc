@@ -19,7 +19,6 @@
 
 #include <gf/Math.h>
 #include <gf/Transform.h>
-#include <gf/Unused.h>
 
 #include "Messages.h"
 
@@ -55,9 +54,7 @@ namespace lux {
       {
       }
 
-      void shoot(float dt, gf::Vector2f position, gf::Vector2f direction, gf::MessageManager& messages) override {
-        gf::unused(dt);
-
+      void shoot([[maybe_unused]] float dt, gf::Vector2f position, gf::Vector2f direction, gf::MessageManager& messages) override {
         ShootMessage shoot;
         shoot.origin = getOrigin();
         shoot.position = position;
@@ -78,9 +75,7 @@ namespace lux {
       {
       }
 
-      void shoot(float dt, gf::Vector2f position, gf::Vector2f direction, gf::MessageManager& messages) override {
-        gf::unused(dt);
-
+      void shoot([[maybe_unused]] float dt, gf::Vector2f position, gf::Vector2f direction, gf::MessageManager& messages) override {
         ShootMessage shoot;
         shoot.origin = getOrigin();
         shoot.position = position;

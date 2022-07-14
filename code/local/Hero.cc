@@ -25,7 +25,6 @@
 #include <gf/Shapes.h>
 #include <gf/Sprite.h>
 #include <gf/Text.h>
-#include <gf/Unused.h>
 
 #include "Messages.h"
 #include "World.h"
@@ -175,9 +174,7 @@ namespace lux {
     }
   }
 
-  gf::MessageStatus Hero::onDead(gf::Id id, gf::Message *msg) {
-    gf::unused(id);
-
+  gf::MessageStatus Hero::onDead([[maybe_unused]] gf::Id id, gf::Message *msg) {
     auto dead = static_cast<DeadMessage *>(msg);
 
     if (dead->origin != Origin::Enemy) {
@@ -211,10 +208,7 @@ namespace lux {
     return gf::MessageStatus::Keep;
   }
 
-  gf::MessageStatus Hero::onRestartGame(gf::Id id, gf::Message *msg) {
-    gf::unused(id);
-    gf::unused(msg);
-
+  gf::MessageStatus Hero::onRestartGame([[maybe_unused]] gf::Id id, [[maybe_unused]] gf::Message *msg) {
     m_inGame = true;
     m_weaponLevel = 1;
     m_shoot = makeSimplePlayerShoot(Origin::Hero, ShipClass::Antlia, m_weaponLevel, 0.1f, 0.5f);
@@ -225,9 +219,7 @@ namespace lux {
     return gf::MessageStatus::Keep;
   }
 
-  gf::MessageStatus Hero::onWinGame(gf::Id id, gf::Message *msg) {
-    gf::unused(id);
-
+  gf::MessageStatus Hero::onWinGame([[maybe_unused]] gf::Id id, gf::Message *msg) {
     auto winEvent = static_cast<WinGameMessage *>(msg);
 
     m_prop.addToScore(winEvent->bonusScore);

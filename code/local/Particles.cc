@@ -19,7 +19,6 @@
 
 #include <gf/Math.h>
 #include <gf/RenderTarget.h>
-#include <gf/Unused.h>
 #include <gf/VectorOps.h>
 
 #include "Messages.h"
@@ -97,8 +96,7 @@ namespace lux {
   static constexpr std::size_t ParticlesCount = 800;
   static constexpr float ParticleSystemLifetime = 1.5f;
 
-  gf::MessageStatus Particles::onDead(gf::Id id, gf::Message *msg) {
-    gf::unused(id);
+  gf::MessageStatus Particles::onDead([[maybe_unused]] gf::Id id, gf::Message *msg) {
     auto dead = static_cast<DeadMessage*>(msg);
 
     ParticleSystem sys;

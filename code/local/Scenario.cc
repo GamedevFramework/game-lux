@@ -26,7 +26,6 @@
 #include <gf/RenderTarget.h>
 #include <gf/Shapes.h>
 #include <gf/Transform.h>
-#include <gf/Unused.h>
 
 #include "Messages.h"
 #include "World.h"
@@ -500,9 +499,7 @@ namespace lux {
     target.draw(text, states);
   }
 
-  gf::MessageStatus Scenario::onScore(gf::Id id, gf::Message *msg) {
-    gf::unused(id);
-
+  gf::MessageStatus Scenario::onScore([[maybe_unused]] gf::Id id, gf::Message *msg) {
     auto score = static_cast<ScoreMessage*>(msg);
 
     m_currentScore = score->score;
@@ -510,9 +507,7 @@ namespace lux {
     return gf::MessageStatus::Keep;
   }
 
-  gf::MessageStatus Scenario::onDead(gf::Id id, gf::Message *msg) {
-    gf::unused(id);
-
+  gf::MessageStatus Scenario::onDead([[maybe_unused]] gf::Id id, gf::Message *msg) {
     auto dead = static_cast<DeadMessage*>(msg);
 
     if (dead->origin != Origin::Hero) {

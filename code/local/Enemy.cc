@@ -19,7 +19,6 @@
 
 #include <gf/Sprite.h>
 #include <gf/RenderTarget.h>
-#include <gf/Unused.h>
 #include <gf/VectorOps.h>
 
 #include "Messages.h"
@@ -138,9 +137,8 @@ namespace lux {
     m_enemies.push_back(enemy);
   }
 
-  gf::MessageStatus EnemyManager::onLocation(gf::Id id, gf::Message *msg) {
+  gf::MessageStatus EnemyManager::onLocation([[maybe_unused]] gf::Id id, gf::Message *msg) {
     assert(id == LocationMessage::type);
-    gf::unused(id);
     auto loc = static_cast<LocationMessage*>(msg);
 
     if (loc->origin == Origin::Hero) {
